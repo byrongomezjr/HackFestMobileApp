@@ -1,97 +1,245 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🎓 Smart Campus Wallet App
 
-# Getting Started
+A comprehensive cross-platform mobile application for managing student digital wallets, transactions, and campus services with AI-powered features
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
 
-## Step 1: Start Metro
+### 🏠 Home / Wallet Screen
+- **Multiple Wallet Types**: Dining Dollars, Event Tickets, Laundry Credits, Print Balance
+- **Total Balance Overview**: See all your funds at a glance
+- **Quick Actions**: Pay, Add Funds, Scan QR, and more
+- **AI Spending Insights**: Smart analysis of your spending patterns with trends
+- **Payment Modals**: Quick and easy fund transfers and payments
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🎫 Digital Student ID
+- **Interactive Card**: Flip between front and back views with smooth animations
+- **QR Code**: For contactless authentication and access
+- **Barcode**: Additional verification method
+- **Profile Information**: Student ID, Major, Year
+- **Quick Access Tools**: Brightness control, Share, Lock features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 💳 Transactions Screen
+- **Complete History**: All transactions with detailed information
+- **AI Fraud Detection**: Real-time ML scoring for each transaction (visible scores)
+- **Fraud Alerts**: Automatic blocking of suspicious activities
+- **Smart Filters**: Filter by status (All, Completed, Pending, Blocked)
+- **Search Functionality**: Find transactions by merchant or category
+- **Spending Summary Cards**: Visual breakdown of spending patterns
+- **Location Tracking**: See where transactions occurred
 
-```sh
-# Using npm
-npm start
+### 🤖 AI Chat Assistant
+- **Natural Language Understanding**: Ask questions in plain English
+- **Smart Responses**: Context-aware answers about:
+  - Balance inquiries
+  - Transaction history
+  - Campus dining locations and hours
+  - Fraud alerts and security
+  - Spending insights and budgeting tips
+- **Quick Suggestions**: Contextual action buttons for common tasks
+- **Real-time Typing Indicators**: See when AI is responding
+- **Chat History**: Scrollable conversation history
 
-# OR using Yarn
-yarn start
+### 👤 Profile Screen
+- **Account Overview**: Profile photo, name, email, badges
+- **Statistics**: Total balance, transaction count, savings
+- **Security Settings**:
+  - Biometric authentication toggle
+  - Fraud alerts
+  - PIN management
+  - Login history
+- **Notifications**: Push and email preferences
+- **Preferences**: Theme, language, currency
+- **Support**: Help center, feedback, privacy policy
+
+## 🎨 Design Features
+
+- **Mobile-First**: Optimized for mobile devices
+- **Modern UI**: Clean, professional design with smooth animations
+- **Accessibility**: High contrast, readable fonts, clear labels
+- **Cross-Platform**: Works on both iOS and Android
+- **Dark Mode Ready**: Respects system theme preferences
+- **Safe Areas**: Proper handling of notches and home indicators
+
+## 🛠️ Tech Stack
+
+- **React Native 0.82**: Cross-platform mobile framework
+- **TypeScript**: Type-safe development
+- **React Navigation**: Bottom tab navigation
+- **React Native Vector Icons**: Material Design icons
+- **Safe Area Context**: Handle device safe areas
+
+## 📂 Project Structure
+
+```
+src/
+├── navigation/
+│   └── AppNavigator.tsx      # Main navigation setup
+├── screens/
+│   ├── HomeScreen.tsx         # Wallet & balances
+│   ├── StudentIDScreen.tsx    # Digital ID card
+│   ├── TransactionsScreen.tsx # Transaction history
+│   ├── ChatScreen.tsx         # AI assistant
+│   └── ProfileScreen.tsx      # User profile & settings
+├── types/
+│   └── index.ts               # TypeScript interfaces
+└── data/
+    └── mockData.ts            # Mock data for demo
 ```
 
-## Step 2: Build and run your app
+## 🚀 Getting Started
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Prerequisites
+- Node.js >= 20
+- npm or yarn
+- Xcode (for iOS)
+- Android Studio (for Android)
 
-### Android
+### Installation
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+1. **Install Dependencies**:
+```bash
+npm install @react-navigation/native @react-navigation/bottom-tabs react-native-screens react-native-gesture-handler react-native-vector-icons @types/react-native-vector-icons
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+2. **iOS Setup**:
+```bash
+cd ios
+pod install
+cd ..
 ```
 
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
+3. **Configure Vector Icons for iOS**:
+Add the following to `ios/HackFestMobileApp/Info.plist`:
+```xml
+<key>UIAppFonts</key>
+<array>
+  <string>MaterialIcons.ttf</string>
+</array>
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+4. **Run the App**:
+```bash
+# iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
+# Android
+npm run android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📱 Key Screens & Navigation
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Bottom Tab Bar
+- **Wallet** (Home): Main wallet overview
+- **ID Card**: Digital student ID
+- **Activity**: Transaction history
+- **AI Assistant**: Chat with AI
+- **Profile**: Settings and account info
 
-## Step 3: Modify your app
+## 🔒 Security Features
 
-Now that you have successfully run the app, let's make changes!
+### AI Fraud Detection
+- Real-time transaction monitoring
+- ML-based risk scoring (0-100%)
+- Automatic blocking of high-risk transactions
+- Detailed fraud alerts with explanations
+- Manual review and approval options
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Authentication
+- Biometric authentication support
+- PIN protection
+- Login history tracking
+- Session management
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 💡 AI Capabilities
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+The AI assistant can help with:
+- ✅ Check wallet balances
+- ✅ View recent transactions
+- ✅ Analyze spending patterns
+- ✅ Provide budget recommendations
+- ✅ Find campus dining locations
+- ✅ Explain fraud alerts
+- ✅ Answer policy questions
+- ✅ Troubleshoot issues
 
-## Congratulations! :tada:
+## 🎯 Mock Data
 
-You've successfully run and modified your React Native App. :partying_face:
+The app includes comprehensive mock data:
+- **Student Profile**: Sample user with photo
+- **4 Wallet Types**: With realistic balances
+- **8 Transactions**: Including one blocked fraud case
+- **Fraud Alerts**: One high-severity alert
+- **Spending Insights**: 4 category breakdowns
 
-### Now what?
+## 🔧 Customization
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### Adding New Wallets
+Edit `src/data/mockData.ts` and add to the `mockWallets` array:
+```typescript
+{
+  id: '5',
+  type: 'custom',
+  name: 'Your Wallet Name',
+  balance: 0.00,
+  currency: '$',
+  icon: 'icon-name', // Material Icons name
+  color: '#HEX_COLOR',
+}
+```
 
-# Troubleshooting
+### Customizing Themes
+All colors are defined in StyleSheet objects. Key colors:
+- Primary: `#6366F1` (Indigo)
+- Success: `#10B981` (Green)
+- Warning: `#F59E0B` (Amber)
+- Error: `#EF4444` (Red)
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 📊 Features Checklist
 
-# Learn More
+✅ Digital student ID with QR code
+✅ Multiple wallet types (4 wallets)
+✅ Transaction history with search/filter
+✅ AI-powered fraud detection (ML scoring)
+✅ Real-time fraud alerts and blocking
+✅ Interactive AI chatbot assistant
+✅ Payment and add funds modals
+✅ Spending insights with trends
+✅ Profile management
+✅ Security settings
+✅ Mobile-first responsive design
+✅ Cross-platform (iOS & Android)
+✅ TypeScript for type safety
+✅ Clean, modern UI
+✅ Smooth animations
 
-To learn more about React Native, take a look at the following resources:
+## 🐛 Known Issues & Solutions
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. **Vector Icons not showing on iOS**: Run `pod install` in the ios folder
+2. **Navigation issues**: Clear metro cache with `npm start -- --reset-cache`
+3. **Build errors**: Try cleaning build folders:
+   - iOS: `cd ios && rm -rf build && cd ..`
+   - Android: `cd android && ./gradlew clean && cd ..`
+
+## 📝 Future Enhancements
+
+- [ ] Real backend integration
+- [ ] Actual ML fraud detection model
+- [ ] Push notifications
+- [ ] Offline mode with sync
+- [ ] Apple Pay / Google Pay integration
+- [ ] Receipt scanning with OCR
+- [ ] Social features (split bills)
+- [ ] Campus map integration
+- [ ] Event ticket QR scanning
+- [ ] Budget goal setting
+
+## 📄 License
+
+This project is developed for HackFest 2025.
+
+## 👥 Contributors
+
+Byron Gomez Jr, Joshwa Sooriar, Bella Pimentel, Hansal Devre, Hanahi Castro
+
+Built with ❤️ for the campus community.
+

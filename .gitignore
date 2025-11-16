@@ -73,3 +73,11 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Fiserv API Credentials - NEVER COMMIT!
+FISERV_CREDENTIALS.txt
+backend-server/.env
+backend-server/node_modules/
+.env
+.env.local
+*.env
