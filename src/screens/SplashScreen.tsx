@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const SplashScreen = () => {
   const fadeAnim = new Animated.Value(0);
   const scaleAnim = new Animated.Value(0.3);
+  const progressAnim = new Animated.Value(0);
 
   useEffect(() => {
     Animated.parallel([
@@ -23,6 +24,11 @@ const SplashScreen = () => {
         friction: 4,
         tension: 40,
         useNativeDriver: true,
+      }),
+      Animated.timing(progressAnim, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: false, // width cannot use native driver
       }),
     ]).start();
   }, []);
@@ -50,7 +56,7 @@ const SplashScreen = () => {
               style={[
                 styles.loadingProgress,
                 {
-                  width: fadeAnim.interpolate({
+                  width: progressAnim.interpolate({
                     inputRange: [0, 1],
                     outputRange: ['0%', '100%'],
                   }),

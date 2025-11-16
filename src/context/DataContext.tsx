@@ -101,16 +101,24 @@ initialCard.isDefault = true;
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const auth = useAuth();
   // Use authenticated user from AuthContext, fallback to initialUser if not authenticated
-  const currentUser = auth.user || initialUser;
+  const authUser = auth.user || initialUser;
+  
+  // Create local state for user with wallet balances that can be updated
+  const [currentUser, setCurrentUser] = useState<User>(authUser);
   
   const [transactions, setTransactions] = useState<WalletTransaction[]>(initialTransactions);
   const [events] = useState<CampusEvent[]>(campusEvents);
   const [cards, setCards] = useState<WalletCard[]>([initialCard]);
 
+  // Sync with auth user when it changes
+  React.useEffect(() => {
+    setCurrentUser(authUser);
+  }, [authUser]);
+
   // Update user data (note: in production, this would sync to backend)
   const updateUser = (updates: Partial<User>) => {
-    // For now, we'll just log this. In production, you'd update the backend
-    // and the AuthContext would handle refreshing the user data
+    setCurrentUser(prev => ({ ...prev, ...updates }));
+    // In production, you'd update the backend here
     console.log('User update requested:', updates);
   };
 

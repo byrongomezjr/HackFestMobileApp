@@ -202,7 +202,7 @@ const TransactionsScreen = () => {
           </View>
           <View style={styles.transactionAmount}>
             <Text style={[styles.amount, { color: isPositive ? '#10B981' : '#111827' }]}>
-              {isPositive ? '+' : ''}{transaction.currency}{transaction.amount.toFixed(2)}
+              {`${isPositive ? '+' : ''}${transaction.currency}${transaction.amount.toFixed(2)}`}
             </Text>
             {transaction.fraudScore !== undefined && transaction.fraudScore > 0 && (
               <View style={[styles.fraudBadge, { backgroundColor: fraudColor }]}>
